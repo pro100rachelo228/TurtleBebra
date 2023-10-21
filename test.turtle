@@ -1,0 +1,48 @@
+@circle
+up
+color 0.5 0.0 1.0
+begin fill 
+goto -200 200
+down
+square 500
+end fill
+up
+color green
+goto -200 -50
+down
+begin fill
+square 500
+end fill
+# This is a comment
+up
+color yellow
+goto -130 100
+down
+begin fill
+circle 50
+end fill
+color blue
+begin fill
+forward 90
+left 90
+forward 90
+left 90
+forward 90
+left 90
+forward 90
+left 90
+end fill
+up
+goto -100 100
+down
+color red
+begin fill
+circle 50
+end fill
+up
+goto 200 100
+down
+width 10
+speed 1
+color gray
+square 25
