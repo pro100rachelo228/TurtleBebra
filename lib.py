@@ -13,23 +13,45 @@ class Command:
 
 #------------------------------------------------------------------------------------
 
+turtles = {}
+
+class SetTurtle(Command):
+
+    def source():
+        return r"(\w+):"
+    
+    def action(match):
+        global turtle
+        if match.group(1) not in turtles:
+            turtles[match.group(1)] = t.Turtle()
+        turtle = turtles[match.group(1)]
+        return f'Set turtle to {match.group(1)}'
+
+
 class SetColorRGB(Command):
 
     def source():
         return r"color *(\d+.\d+) *(\d+.\d+) *(\d+.\d+)"
     
     def action(match):
-        turtle.color(float(match.group(1)) ,float(match.group(2)), float(match.group(3)))
-        return f'Set color to "{match.group(1)}, {match.group(2)}, {match.group(3)}"'
+        try:
+            turtle.color(float(match.group(1)) ,float(match.group(2)), float(match.group(3)))
+            return f'Set color to "{match.group(1)}, {match.group(2)}, {match.group(3)}"'
+        except:
+            return f'Color {match.group(1)}, {match.group(2)}, {match.group(3)} is bad'
+            
 
 class SetColorWord(Command):
 
     def source():
         return r"color *(\w+)"
-    
+   
     def action(match):
-        turtle.color(match.group(1))
-        return f'Set color to "{match.group(1)}"'
+        try:
+            turtle.color(match.group(1))
+            return f'Set color to "{match.group(1)}"'
+        except:
+             return f'Color {match.group(1)} is bad'
 
 class BeginFill(Command):
 

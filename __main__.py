@@ -1,20 +1,27 @@
+import os
+
+filename = input("Enter file name: ")
+
+while not os.path.isfile(filename):
+    print("Wrong file name:",filename)
+    filename = input("Enter file name: ")
+
 lines = ""
-with open(input(),"r") as s:
+with open(filename,"r") as s:
     lines = s.readlines()
 
 # -------------------------------
 
-# generators
+# decorators 
 # filter (map)
 # try | except
-
 
 import turtle
 import re
 import lib
     
-
 commands = [
+    lib.SetTurtle,
     lib.SetColorRGB,
     lib.SetColorWord,
     lib.BeginFill,
@@ -28,7 +35,7 @@ commands = [
     lib.Circle,
     lib.Width,
     lib.Speed,
-    lib.Square,
+    lib.Square, 
 ]
 
 with open("actions.log", "w") as fl:
