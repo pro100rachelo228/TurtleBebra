@@ -14,7 +14,7 @@ with open(filename,"r") as s:
 
 # decorators 
 # filter (map)
-# try | except
+# slices
 
 import turtle
 import re
