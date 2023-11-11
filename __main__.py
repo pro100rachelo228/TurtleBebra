@@ -34,6 +34,7 @@ commands = [
     lib.Width,
     lib.Speed,
     lib.Square, 
+    lib.Gradient,
 ]
 
 with open("actions.log", "w") as fl:

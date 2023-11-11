@@ -1,4 +1,5 @@
 import turtle as t
+import colorsys
 
 turtle = t.Turtle()
 
@@ -31,7 +32,7 @@ class SetTurtle(Command):
 class SetColorRGB(Command):
 
     def source():
-        return r"color *(\d+.\d+) *(\d+.\d+) *(\d+.\d+)"
+        return r"color +(\d+.\d+) +(\d+.\d+) +(\d+.\d+)"
     
     def action(match):
         try:
@@ -164,5 +165,14 @@ class Square(Command):
             turtle.right(90)
         return f'Square {match.group(1)}'  
     
+class Gradient(Command):
 
+    def source():
+        return r"gradient +(\d+.\d+) +(\d+.\d+)"
     
+    def action(match):
+        for i in range(200):
+            turtle.color(colorsys.hsv_to_rgb(i/200,1,1))
+            turtle.fd(2)
+            turtle.left(1.8)
+        return f"Gradient {match.group(1)} {match.group(2)}"
