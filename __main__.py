@@ -12,9 +12,7 @@ with open(filename,"r") as s:
 
 # -------------------------------
 
-# decorators 
 # filter (map)
-# slices
 
 import turtle
 import re
